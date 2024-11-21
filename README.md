@@ -109,17 +109,19 @@ docker-compose up --build
 
 Configure the following variables in your `.env` file:
 
-| Variable        | Description                      | Example            |
-| --------------- | -------------------------------- | ------------------ |
-| `APP_NAME`      | Application name                 | `NewsAggregator`   |
-| `APP_URL`       | Application URL                  | `http://localhost` |
-| `DB_CONNECTION` | Database connection type         | `mysql`            |
-| `DB_HOST`       | Database host                    | `127.0.0.1`        |
-| `DB_PORT`       | Database port                    | `3306`             |
-| `DB_DATABASE`   | Database name                    | `news_aggregator`  |
-| `DB_USERNAME`   | Database username                | `root`             |
-| `DB_PASSWORD`   | Database password                | `password`         |
-| `NEWS_API_KEY`  | API key for external news source | `your-api-key`     |
+| Variable           | Description                | Example            |
+| ------------------ | -------------------------- | ------------------ |
+| `APP_NAME`         | Application name           | `NewsAggregator`   |
+| `APP_URL`          | Application URL            | `http://localhost` |
+| `DB_CONNECTION`    | Database connection type   | `mysql`            |
+| `DB_HOST`          | Database host              | `127.0.0.1`        |
+| `DB_PORT`          | Database port              | `3306`             |
+| `DB_DATABASE`      | Database name              | `news_aggregator`  |
+| `DB_USERNAME`      | Database username          | `root`             |
+| `DB_PASSWORD`      | Database password          | `password`         |
+| `GUARDIAN_API_KEY` | API key for The Guardian   | `your-api-key`     |
+| `NYT_API_KEY`      | API key for New York Times | `your-api-key`     |
+| `NEWS_API_KEY`     | API key for NewsAPI        | `your-api-key`     |
 
 ---
 
