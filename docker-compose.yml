@@ -25,7 +25,7 @@ services:
       - DB_USERNAME=root
       - DB_PASSWORD=root
     working_dir: /var/www/html
-    command: bash -c "./setup.sh"
+
 
   # Frontend Service (React)
   frontend:
