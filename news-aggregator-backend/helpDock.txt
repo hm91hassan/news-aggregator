@@ -1,0 +1,32 @@
+Step 1: Stop the Container
+First, stop the container using its name or container ID:
+
+docker stop phpmyadmin
+
+Step 2: Remove the Container
+Once stopped, remove the container:
+docker rm phpmyadmin
+
+
+Step 3: Verify Removal
+List all running and stopped containers to confirm it’s removed:
+docker ps -a
+
+
+
+Step 4: Verify that the containers are running:
+docker ps
+
+
+
+docker exec -it news-aggregator-backend bash
+docker exec -it laravel-db /bin/bash
+
+docker-compose down
+docker-compose up -d
+docker-compose up --build
+
+
+
+
+

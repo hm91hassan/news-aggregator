@@ -1,0 +1,71 @@
+version: '3.8'
+
+services:
+  # Backend Service (Laravel)
+  backend:
+    container_name: news-aggregator-backend
+    build:
+      context: ./news-aggregator-backend
+      dockerfile: Dockerfile
+    image: news-aggregator-backend:latest
+    ports:
+      - "8000:8000" # Expose port 80 for Apache (Laravel)
+    volumes:
+      - ./news-aggregator-backend:/var/www/html # Mount backend code to container
+    networks:
+      - news-aggregator-network
+    depends_on:
+      - db # Ensure db is up before backend starts
+    environment:
+      - APP_ENV=local
+      - APP_DEBUG=true
+      - APP_KEY=SomeRandomKeyForYourApp # Set Laravel App Key
+      - DB_HOST=db
+      - DB_DATABASE=news_aggregator
+      - DB_USERNAME=root
+      - DB_PASSWORD=root
+    working_dir: /var/www/html
+    command: bash -c "./setup.sh"
+
+  # Frontend Service (React)
+  frontend:
+    container_name: news-aggregator-frontend
+    build:
+      context: ./news-aggregator-frontend
+      dockerfile: Dockerfile
+    image: news-aggregator-frontend:latest
+    ports:
+      - "3000:3000" # Expose React app on port 3000
+    volumes:
+      - ./news-aggregator-frontend:/app # Mount frontend code to container
+    networks:
+      - news-aggregator-network
+    depends_on:
+      - backend # Ensure frontend waits for backend to be ready
+    environment:
+      - API_URL=http://backend:8000/api # Backend API URL
+
+  # MySQL Database
+  db:
+    container_name: news-aggregator-db
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: news_aggregator
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+    ports:
+      - "3307:3306" # Expose MySQL on port 3307
+    volumes:
+      - db-data:/var/lib/mysql # Persistent database storage
+    networks:
+      - news-aggregator-network
+
+# Volumes
+volumes:
+  db-data: # Persistent storage for MySQL database
+
+# Networks
+networks:
+  news-aggregator-network:
+    driver: bridge
