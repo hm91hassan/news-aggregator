@@ -130,8 +130,6 @@ If you encounter any issues:
 -   Frontend: http://localhost:3000
 -   Backend API: http://localhost:8000
 
----
-
 ## Troubleshooting
 
 If you encounter any issues:
@@ -139,5 +137,3 @@ If you encounter any issues:
 -   Ensure Docker is installed and running.
 -   Check the .env file in the backend directory for correct configuration.
 -   Verify that ports 3000 and 8000 are available on your machine.
-
----
