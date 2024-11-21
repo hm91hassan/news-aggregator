@@ -1,60 +1,67 @@
-# News Aggregator App
+# News Aggregator
 
-A full-stack News Aggregator application that fetches news from various sources, allows users to filter news by categories, authors, sources, and keyword search. It provides user profile management, preference saving, and pagination features.
-
----
-
-## Table of Contents
-
-1. [Project Overview](#project-overview)
-2. [Technologies Used](#technologies-used)
-3. [Installation](#installation)
-4. [Setup](#setup)
-5. [Usage](#usage)
-6. [Deployment (Deodorization)](#deployment-deodorization)
+A Laravel and React-based application for aggregating news articles. This project consists of a backend built with Laravel and a frontend built with React.
 
 ---
 
-## Project Overview
+## Installation Guide
 
-This project is designed to aggregate news articles from different sources and display them in a clean and responsive interface. Users can filter articles by sources, categories, authors, and search keywords. Additionally, users can save their preferences and view their profile.
+Follow these steps to set up the project:
 
----
-
-## Technologies Used
-
--   **Frontend:**
-    -   React.js
-    -   Tailwind CSS
-    -   Axios (for API calls)
--   **Backend:**
-
-    -   Laravel (PHP)
-    -   MySQL (Database)
-
--   **Authentication:**
-    -   Laravel Sanctum for API authentication
-
----
-
-## Installation
-
-### Prerequisites
-
-Ensure that you have the following software installed:
-
--   **Node.js** (for the frontend)
--   **PHP** (for the backend)
--   **Composer** (for managing PHP dependencies)
--   **MySQL** (for the database)
-
----
-
-### 1. Clone the Repository
-
-Clone the repository to your local machine:
+### Step 1: Clone the Repository
 
 ```bash
+
 git clone https://github.com/hm91hassan/news-aggregator.git
-cd news-aggregator
+
+```
+
+### Step 2: Navigate to the Backend Directory
+
+```bash
+cd news-aggregator/news-aggregator-backend
+
+```
+
+### Step 3: Install Backend Dependencies
+
+```bash
+composer install
+```
+
+### tep 4: Copy the .env File
+
+```bash
+cp .env.example .env
+
+```
+
+### Step 5: Generate the Application Key
+
+```bash
+php artisan key:generate
+```
+
+### Step 6: Navigate to the Frontend Directory
+
+```bash
+cd ../news-aggregator-frontend/
+```
+
+### Step 7: Install Frontend Dependencies
+
+```bash
+npm install
+```
+
+### Step 8: Return to the Root Directory
+
+```bash
+cd ../
+```
+
+### Step 9: Build and Start Docker Containers
+
+```bash
+docker-compose up --build
 ```
