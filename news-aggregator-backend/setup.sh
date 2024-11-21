@@ -2,11 +2,17 @@
 
 echo "Running Laravel setup script..."
 
-# Install dependencies
-composer install
 
-# Generate application key
-php artisan key:generate
+
+# # Install dependencies
+# composer install
+
+
+
+# php artisan config:clear
+
+# # Generate application key
+# php artisan key:generate
 
 # Run migrations
 php artisan migrate:fresh

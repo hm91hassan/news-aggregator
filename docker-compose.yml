@@ -25,6 +25,7 @@ services:
       - DB_USERNAME=root
       - DB_PASSWORD=root
     working_dir: /var/www/html
+    command: bash -c './setup.sh'
 
 
   # Frontend Service (React)
@@ -52,8 +53,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: news_aggregator
-      MYSQL_USER: root
-      MYSQL_PASSWORD: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'no' 
     ports:
       - "3307:3306" # Expose MySQL on port 3307
     volumes:

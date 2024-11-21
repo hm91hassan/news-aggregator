@@ -7,7 +7,11 @@ RUN apt-get update && apt-get install -y libpng-dev libjpeg-dev libfreetype6-dev
     docker-php-ext-install gd pdo pdo_mysql
 
 # Set working directory
-WORKDIR /var/www
+WORKDIR /var/www/html
+
+COPY .env.example .env
+
+RUN echo 'php artisan key:generate'
 
 # Copy the Laravel files into the container
 COPY . .
@@ -17,6 +21,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 # Install dependencies via Composer
 RUN composer install --no-scripts --no-autoloader
+
 
 # Expose port 8000 to access the Laravel application
 EXPOSE 8000
